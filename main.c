@@ -74,7 +74,60 @@ void DecimalDegerYazdir(int sayi)
 
 void HexadecimalDegerYazdir(int sayi)
 {
+    printf("AccConfigValue(Hexadecimal): 0x");
 
+    char sonuc[8] = "";
+
+    for(int i = 7; i >= 0; i--)
+    {
+        if(sayi % 16 < 10)
+        {
+            sonuc[i] = (sayi % 16) + '0';
+            sayi /= 16;
+        }
+
+        else
+        {
+            switch (sayi % 16)
+            {
+                case 10:
+                sonuc[i] = 'a';
+                sayi /= 16;
+                break;
+                
+                case 11:
+                sonuc[i] = 'b';
+                sayi /= 16;
+                break;
+
+                case 12:
+                sonuc[i] = 'c';
+                sayi /= 16;   
+                break;
+
+                case 13:
+                sonuc[i] = 'd';
+                sayi /= 16;
+                break;
+
+                case 14:
+                sonuc[i] = 'e';
+                sayi /= 16;
+                break;
+
+                case 15:
+                sonuc[i] = 'f';
+                sayi /= 16;
+                break;
+            }
+        }
+    }
+    
+    for(int i = 0; i <= 7; i++)
+    {   
+        printf("%c", sonuc[i]);
+    }
+    printf("\n");
 }
 
 void BinaryDegerYazdir(int sayi)
@@ -83,13 +136,13 @@ void BinaryDegerYazdir(int sayi)
 
     int sonuc[8] = {0};
 
-    for(int i = 7; i >= 1; i--)
+    for(int i = 7; i >= 0; i--)
     {
         sonuc[i] = sayi % 2;
-        sayi = (sayi - (sayi % 2)) / 2; 
+        sayi /= 2; 
     }
     
-    for(int i = 0; i <= 7; i++)
+    for(int i = 0; i < 8; i++)
     {
         printf("%d", sonuc[i]);
     }

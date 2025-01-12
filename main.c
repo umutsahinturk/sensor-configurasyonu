@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdint.h>
 
+#define ACCEL_RANGE AFS_8G
+#define BAND_WIDTH Band_500Hz
+#define OPERATION_MODE Mode_Normal
+
 void DecimalDegerYazdir(int sayi);
-
 void HexadecimalDegerYazdir(int sayi);
-
 void BinaryDegerYazdir(int sayi);
 
 int main()
@@ -47,7 +49,7 @@ int main()
         uint8_t AccConfigValue;
     };
     
-    struct AccConfig Config = {AFS_8G, Band_500Hz, Mode_Normal, 0b00000000};
+    struct AccConfig Config = {ACCEL_RANGE, BAND_WIDTH, OPERATION_MODE, 0b00000000};
 
     Config.AccConfigValue = Config.AccConfigValue | Config.OperationMode; // 0b00000000
     Config.AccConfigValue = Config.AccConfigValue << 3; // 0b00000000

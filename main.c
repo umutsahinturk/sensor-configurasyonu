@@ -40,6 +40,18 @@ int main()
         enum OperationMode OperationMode;
         uint8_t AccConfigValue;
     };
+    
+    struct AccConfig Config = {AFS_8G, Band_500Hz, Mode_Normal, 0b00000000};
 
+    Config.AccConfigValue = Config.AccConfigValue | Config.OperationMode; // 0b00000000
+    Config.AccConfigValue = Config.AccConfigValue << 3; // 0b00000000
+    
+    Config.AccConfigValue = Config.AccConfigValue | Config.BandWidth; // 0b00000110
+    Config.AccConfigValue = Config.AccConfigValue << 2; // 0b00011000
+    
+    Config.AccConfigValue = Config.AccConfigValue | Config.AccelRange; // 0b00011010
+
+    printf("%d", Config.AccConfigValue);
+    
     return 0;
 }

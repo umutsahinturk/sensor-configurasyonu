@@ -1,37 +1,45 @@
 #include <stdio.h>
+#include <stdint.h>
 
 int main()
 {
     enum AccelRange
     {
-        _2G,
-        _4G,
-        _8G,
-        _16G
+        AFS_2G,
+        AFS_4G,
+        AFS_8G,
+        AFS_16G
     };
 
-    enum Bandwidth
+    enum BandWidth
     {
-        _7_81Hz,
-        _15_63Hz,
-        _31_25Hz,
-        _62_5Hz,
-        _125Hz,
-        _250Hz,
-        _500Hz,
-        _1000Hz,
+        Band_7_81Hz,
+        Band_15_63Hz,
+        Band_31_25Hz,
+        Band_62_5Hz,
+        Band_125Hz,
+        Band_250Hz,
+        Band_500Hz,
+        Band_1000Hz,
     };
 
     enum OperationMode 
     {
-        Normal,
-        Suspend,
-        LowPower1,
-        Standby,
-        LowPower2,
-        DeepSuspend
+        Mode_Normal,
+        Mode_Suspend,
+        Mode_LowPower1,
+        Mode_Standby,
+        Mode_LowPower2,
+        Mode_DeepSuspend
     };
 
+    struct AccConfig
+    {
+        enum AccelRange AccelRange;
+        enum BandWidth BandWidth;
+        enum OperationMode OperationMode;
+        uint8_t AccConfigValue;
+    };
 
     return 0;
 }

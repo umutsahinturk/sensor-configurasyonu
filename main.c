@@ -69,7 +69,7 @@ int main()
 
 void DecimalDegerYazdir(int sayi)
 {
-
+    printf("AccConfigValue(Decimal): %d\n", sayi);
 }
 
 void HexadecimalDegerYazdir(int sayi)
@@ -79,5 +79,19 @@ void HexadecimalDegerYazdir(int sayi)
 
 void BinaryDegerYazdir(int sayi)
 {
+    printf("AccConfigValue(Binary): 0b");
 
+    int sonuc[8] = {0};
+
+    for(int i = 7; i >= 1; i--)
+    {
+        sonuc[i] = sayi % 2;
+        sayi = (sayi - (sayi % 2)) / 2; 
+    }
+    
+    for(int i = 0; i <= 7; i++)
+    {
+        printf("%d", sonuc[i]);
+    }
+    printf("\n");
 }

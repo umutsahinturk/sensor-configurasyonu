@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdint.h>
 
+void DecimalDegerYazdir(int sayi);
+
+void HexadecimalDegerYazdir(int sayi);
+
+void BinaryDegerYazdir(int sayi);
+
 int main()
 {
     enum AccelRange
@@ -51,7 +57,25 @@ int main()
     
     Config.AccConfigValue = Config.AccConfigValue | Config.AccelRange; // 0b00011010
 
-    printf("%d", Config.AccConfigValue);
+
+    DecimalDegerYazdir(Config.AccConfigValue);
+    HexadecimalDegerYazdir(Config.AccConfigValue);
+    BinaryDegerYazdir(Config.AccConfigValue);
     
     return 0;
+}
+
+void DecimalDegerYazdir(int sayi)
+{
+
+}
+
+void HexadecimalDegerYazdir(int sayi)
+{
+
+}
+
+void BinaryDegerYazdir(int sayi)
+{
+
 }
